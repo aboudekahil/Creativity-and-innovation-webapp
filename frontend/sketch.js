@@ -4,7 +4,8 @@ let predictions = [];
 let canvas2;
 
 function setup() {
-  let canvas = createCanvas(640, 480);
+  createCanvas(640, 480);
+  frameRate(fr);
 
   video = createCapture(VIDEO);
   video.size(width, height);
@@ -17,6 +18,8 @@ function setup() {
   handpose.on('predict', (results) => {
     predictions = results;
   });
+
+  record();
 
   // Hide the video element, and just show the canvas
   video.hide();

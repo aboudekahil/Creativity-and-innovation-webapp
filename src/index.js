@@ -6,7 +6,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const basedir = path.join(__dirname, '..');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(basedir, 'frontend', 'index.html'));
