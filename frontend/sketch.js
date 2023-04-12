@@ -15,7 +15,7 @@ function setup() {
 
   // This sets up an event that fills the global variable "predictions"
   // with an array every time new hand poses are detected
-  handpose.on('predict', (results) => {
+  handpose.on('hand', (results) => {
     predictions = results;
   });
 
@@ -48,22 +48,13 @@ function drawKeypoints() {
       ellipse(keypoint[0], keypoint[1], 10, 10);
     }
 
-    const thumb = prediction.annotations.thumb;
     const pointer = prediction.annotations.indexFinger;
 
     canvas2.stroke(255);
     canvas2.strokeWeight(10);
 
-    for (let k = 0; k < thumb.length; k++) {
-      const thumb_keypoint = thumb[k];
-      const pointer_keypoint = pointer[k];
+    const pointer_keypoint = pointer[3];
 
-      canvas2.line(
-        thumb_keypoint[0],
-        thumb_keypoint[1],
-        pointer_keypoint[0],
-        pointer_keypoint[1]
-      );
-    }
+    canvas2.ellipse(pointer_keypoint[0], pointer_keypoint[1], 5);
   }
 }
