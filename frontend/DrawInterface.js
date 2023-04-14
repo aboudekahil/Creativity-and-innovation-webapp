@@ -33,6 +33,14 @@ class DrawInterface {
     this.canvasRenderer.stroke(r, g, b);
   }
 
+  // startErasing(){
+  //   this.canvasRenderer.erase();
+  // }
+
+  // stopErasing(){
+  //   this.canvasRenderer.noErase();
+  // }
+
   draw(x1, y1, x2, y2, threshold, radius = 40) {
     if (Math.abs(x1 - x2) < threshold && Math.abs(y1 - y2) < threshold) {
       this.drawLine(x1, y1, x2, y2);
